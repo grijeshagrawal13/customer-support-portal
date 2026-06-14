@@ -3,10 +3,12 @@ services:
     name: customer-support-portal
     runtime: node
     rootDir: .
-    buildCommand: "cd frontend && npm install --include=dev && npm run build && cd ../backend && npm install"
+    buildCommand: "node backend/src/export-seed.js && cd frontend && npm install --include=dev && npm run build && cd ../backend && npm install"
     startCommand: "node backend/src/index.js"
     envVars:
       - key: NODE_ENV
         value: production
       - key: NODE_VERSION
         value: "20"
+      - key: RENDER_EXTERNAL_URL
+        value: https://customer-support-portal-vtbt.onrender.com

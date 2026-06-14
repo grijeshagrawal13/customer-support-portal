@@ -12,6 +12,7 @@
     "build": "cd frontend && npm run build",
     "start": "node backend/src/index.js",
     "seed": "node backend/src/seed.js",
-    "render-build": "cd frontend && npm install --include=dev && npm run build && cd ../backend && npm install"
+    "export-seed": "node backend/src/export-seed.js",
+    "render-build": "node backend/src/export-seed.js && cd frontend && npm install --include=dev && npm run build && cd ../backend && npm install"
   }
 }
