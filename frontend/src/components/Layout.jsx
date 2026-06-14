@@ -1,4 +1,5 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { logout, getCurrentEmail } from '../api/auth';
 
 const navItems = [
   { path: '/', label: 'Dashboard' },
@@ -6,8 +7,16 @@ const navItems = [
   { path: '/tickets/new', label: 'New Ticket' },
 ];
 
-export default function Layout({ children }) {
+export default function Layout({ children, onLogout }) {
   const location = useLocation();
+  const navigate = useNavigate();
+  const email = getCurrentEmail();
+
+  const handleLogout = () => {
+    logout();
+    onLogout();
+    navigate('/login');
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -38,6 +47,15 @@ export default function Layout({ children }) {
                   </Link>
                 ))}
               </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-gray-600">{email}</span>
+              <button
+                onClick={handleLogout}
+                className="text-sm text-gray-600 hover:text-red-600 font-medium px-3 py-1.5 rounded-lg hover:bg-red-50 transition-colors"
+              >
+                Logout
+              </button>
             </div>
           </div>
         </div>

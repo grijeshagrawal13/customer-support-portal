@@ -1,82 +1,111 @@
-[
-  {
-    "title": "Cannot login to dashboard",
-    "description": "I am unable to login to the main dashboard. Getting a 401 error after entering correct credentials. Tried resetting password but issue persists.",
-    "priority": "high",
-    "status": "open",
-    "customer_name": "Rahul Sharma",
-    "customer_email": "rahul.sharma@example.com"
-  },
-  {
-    "title": "Payment failed but amount deducted",
-    "description": "Attempted to purchase the Pro plan. Payment gateway showed error but my bank account was debited Rs. 2999. Need immediate refund or plan activation.",
-    "priority": "critical",
-    "status": "in_progress",
-    "customer_name": "Priya Patel",
-    "customer_email": "priya.patel@example.com"
-  },
-  {
-    "title": "Feature request: Dark mode",
-    "description": "Would love to have a dark mode option in the application. Currently the white background is too bright for late-night usage.",
-    "priority": "low",
-    "status": "open",
-    "customer_name": "Amit Kumar",
-    "customer_email": "amit.kumar@example.com"
-  },
-  {
-    "title": "Export CSV not working",
-    "description": "When I try to export my data as CSV, the file downloads but is empty. This used to work last week. Browser: Chrome 120.",
-    "priority": "medium",
-    "status": "open",
-    "customer_name": "Sneha Reddy",
-    "customer_email": "sneha.r@example.com"
-  },
-  {
-    "title": "API rate limit too restrictive",
-    "description": "Our integration is hitting the rate limit (100 req/min) during peak hours. We need at least 500 req/min for our workflow automation.",
-    "priority": "high",
-    "status": "in_progress",
-    "customer_name": "Vikram Singh",
-    "customer_email": "vikram@techcorp.io"
-  },
-  {
-    "title": "Mobile app crashes on iOS 17",
-    "description": "After updating to iOS 17.2, the app crashes immediately on launch. iPhone 15 Pro. Reinstalling did not help.",
-    "priority": "critical",
-    "status": "resolved",
-    "customer_name": "Neha Gupta",
-    "customer_email": "neha.g@example.com"
-  },
-  {
-    "title": "Incorrect invoice generated",
-    "description": "Invoice #INV-2024-0892 shows wrong GST amount. Should be 18% but showing 28%. Please regenerate with correct tax slab.",
-    "priority": "medium",
-    "status": "closed",
-    "customer_name": "Rajesh Menon",
-    "customer_email": "rajesh.m@business.co"
-  },
-  {
-    "title": "Need team member access management",
-    "description": "We have 15 team members and need role-based access. Currently everyone has admin access which is a security concern.",
-    "priority": "medium",
-    "status": "open",
-    "customer_name": "Ananya Iyer",
-    "customer_email": "ananya@startup.io"
-  },
-  {
-    "title": "Webhook delivery failures",
-    "description": "Our webhook endpoint is not receiving events since yesterday. Checked our server logs - no incoming requests at all. Endpoint URL is correct.",
-    "priority": "high",
-    "status": "open",
-    "customer_name": "Karthik Nair",
-    "customer_email": "karthik@devops.team"
-  },
-  {
-    "title": "Slow dashboard loading time",
-    "description": "Dashboard takes 15-20 seconds to load when we have more than 1000 records. This makes the product unusable for our team.",
-    "priority": "medium",
-    "status": "in_progress",
-    "customer_name": "Deepika Joshi",
-    "customer_email": "deepika.j@enterprise.com"
-  }
-]
+{
+  "tickets": [
+    {
+      "title": "Cannot login to dashboard",
+      "description": "I am unable to login to the main dashboard. Getting a 401 error after entering correct credentials. Tried resetting password but issue persists.",
+      "priority": "high",
+      "status": "open",
+      "customer_name": "Rahul Sharma",
+      "customer_email": "rahul.sharma@example.com",
+      "created_at": "2026-06-14 10:36:33",
+      "updated_at": "2026-06-14 10:36:33"
+    },
+    {
+      "title": "Payment failed but amount deducted",
+      "description": "Attempted to purchase the Pro plan. Payment gateway showed error but my bank account was debited Rs. 2999. Need immediate refund or plan activation.",
+      "priority": "critical",
+      "status": "in_progress",
+      "customer_name": "Priya Patel",
+      "customer_email": "priya.patel@example.com",
+      "created_at": "2026-06-14 10:36:33",
+      "updated_at": "2026-06-14 10:36:33"
+    },
+    {
+      "title": "Feature request: Dark mode",
+      "description": "Would love to have a dark mode option in the application. Currently the white background is too bright for late-night usage.",
+      "priority": "low",
+      "status": "open",
+      "customer_name": "Amit Kumar",
+      "customer_email": "amit.kumar@example.com",
+      "created_at": "2026-06-14 10:36:33",
+      "updated_at": "2026-06-14 10:36:33"
+    },
+    {
+      "title": "Export CSV not working",
+      "description": "When I try to export my data as CSV, the file downloads but is empty. This used to work last week. Browser: Chrome 120.",
+      "priority": "medium",
+      "status": "open",
+      "customer_name": "Sneha Reddy",
+      "customer_email": "sneha.r@example.com",
+      "created_at": "2026-06-14 10:36:33",
+      "updated_at": "2026-06-14 10:36:33"
+    },
+    {
+      "title": "API rate limit too restrictive",
+      "description": "Our integration is hitting the rate limit (100 req/min) during peak hours. We need at least 500 req/min for our workflow automation.",
+      "priority": "high",
+      "status": "in_progress",
+      "customer_name": "Vikram Singh",
+      "customer_email": "vikram@techcorp.io",
+      "created_at": "2026-06-14 10:36:33",
+      "updated_at": "2026-06-14 10:36:33"
+    },
+    {
+      "title": "Mobile app crashes on iOS 17",
+      "description": "After updating to iOS 17.2, the app crashes immediately on launch. iPhone 15 Pro. Reinstalling did not help.",
+      "priority": "critical",
+      "status": "resolved",
+      "customer_name": "Neha Gupta",
+      "customer_email": "neha.g@example.com",
+      "created_at": "2026-06-14 10:36:33",
+      "updated_at": "2026-06-14 10:36:33"
+    },
+    {
+      "title": "Incorrect invoice generated",
+      "description": "Invoice #INV-2024-0892 shows wrong GST amount. Should be 18% but showing 28%. Please regenerate with correct tax slab.",
+      "priority": "medium",
+      "status": "closed",
+      "customer_name": "Rajesh Menon",
+      "customer_email": "rajesh.m@business.co",
+      "created_at": "2026-06-14 10:36:33",
+      "updated_at": "2026-06-14 10:36:33"
+    },
+    {
+      "title": "Need team member access management",
+      "description": "We have 15 team members and need role-based access. Currently everyone has admin access which is a security concern.",
+      "priority": "medium",
+      "status": "open",
+      "customer_name": "Ananya Iyer",
+      "customer_email": "ananya@startup.io",
+      "created_at": "2026-06-14 10:36:33",
+      "updated_at": "2026-06-14 10:36:33"
+    },
+    {
+      "title": "Webhook delivery failures",
+      "description": "Our webhook endpoint is not receiving events since yesterday. Checked our server logs - no incoming requests at all. Endpoint URL is correct.",
+      "priority": "high",
+      "status": "open",
+      "customer_name": "Karthik Nair",
+      "customer_email": "karthik@devops.team",
+      "created_at": "2026-06-14 10:36:33",
+      "updated_at": "2026-06-14 10:36:33"
+    },
+    {
+      "title": "Slow dashboard loading time",
+      "description": "Dashboard takes 15-20 seconds to load when we have more than 1000 records. This makes the product unusable for our team.",
+      "priority": "medium",
+      "status": "in_progress",
+      "customer_name": "Deepika Joshi",
+      "customer_email": "deepika.j@enterprise.com",
+      "created_at": "2026-06-14 10:36:33",
+      "updated_at": "2026-06-14 10:36:33"
+    }
+  ],
+  "users": [
+    {
+      "email": "demo@test.com",
+      "password_hash": "$2b$10$Un51.Ao..ELY325oflP2eubxEMKGo1UlWr3Kzkq3wWA5k73f7PYVS",
+      "created_at": "2026-06-14 10:37:37"
+    }
+  ]
+}

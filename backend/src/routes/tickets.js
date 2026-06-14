@@ -18,13 +18,6 @@ router.get('/stats', (req, res) => {
   res.json({ total: total.count, byStatus, byPriority });
 });
 
-// GET /api/tickets/export — Export all tickets for seed backup
-router.get('/export', (req, res) => {
-  const tickets = db.prepare(
-    'SELECT title, description, priority, status, customer_name, customer_email, created_at, updated_at FROM tickets ORDER BY created_at DESC'
-  ).all();
-  res.json(tickets);
-});
 
 // GET /api/tickets — List all tickets (with optional filters)
 router.get('/', (req, res) => {
