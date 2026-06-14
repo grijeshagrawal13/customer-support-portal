@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const db = require('./database');
 const ticketRoutes = require('./routes/tickets');
 
 const app = express();
@@ -17,6 +18,13 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
     res.sendFile(path.join(frontendPath, 'index.html'));
   });
+}
+
+// Auto-seed if database is empty (first deploy)
+const count = db.prepare('SELECT COUNT(*) as count FROM tickets').get();
+if (count.count === 0) {
+  console.log('Empty database detected, seeding...');
+  require('./seed');
 }
 
 app.listen(PORT, () => {

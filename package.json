@@ -2,13 +2,16 @@
   "name": "customer-support-portal",
   "version": "1.0.0",
   "description": "Customer Support Portal - DevRev SE Assignment",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "install:all": "cd backend && npm install && cd ../frontend && npm install",
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build",
-    "start": "cd backend && npm start",
-    "seed": "cd backend && npm run seed",
-    "render-build": "cd frontend && npm install && npm run build && cd ../backend && npm install && npm run seed"
+    "start": "node backend/src/index.js",
+    "seed": "node backend/src/seed.js",
+    "render-build": "cd frontend && npm install --include=dev && npm run build && cd ../backend && npm install"
   }
 }

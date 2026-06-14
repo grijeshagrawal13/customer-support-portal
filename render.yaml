@@ -2,8 +2,11 @@ services:
   - type: web
     name: customer-support-portal
     runtime: node
-    buildCommand: npm run render-build
-    startCommand: npm start
+    rootDir: .
+    buildCommand: "cd frontend && npm install --include=dev && npm run build && cd ../backend && npm install"
+    startCommand: "node backend/src/index.js"
     envVars:
       - key: NODE_ENV
         value: production
+      - key: NODE_VERSION
+        value: "20"
