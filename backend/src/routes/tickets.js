@@ -21,7 +21,7 @@ router.get('/stats', (req, res) => {
 // GET /api/tickets/export — Export all tickets for seed backup
 router.get('/export', (req, res) => {
   const tickets = db.prepare(
-    'SELECT title, description, priority, status, customer_name, customer_email FROM tickets ORDER BY id ASC'
+    'SELECT title, description, priority, status, customer_name, customer_email, created_at, updated_at FROM tickets ORDER BY created_at DESC'
   ).all();
   res.json(tickets);
 });

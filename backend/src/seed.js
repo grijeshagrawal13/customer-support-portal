@@ -5,14 +5,23 @@ const fs = require('fs');
 const seedPath = path.join(__dirname, '..', 'data', 'seed-data.json');
 const tickets = JSON.parse(fs.readFileSync(seedPath, 'utf-8'));
 
-const insert = db.prepare(`
+const insertWithTimestamps = db.prepare(`
+  INSERT INTO tickets (title, description, priority, status, customer_name, customer_email, created_at, updated_at)
+  VALUES (@title, @description, @priority, @status, @customer_name, @customer_email, @created_at, @updated_at)
+`);
+
+const insertWithoutTimestamps = db.prepare(`
   INSERT INTO tickets (title, description, priority, status, customer_name, customer_email)
   VALUES (@title, @description, @priority, @status, @customer_name, @customer_email)
 `);
 
 const insertMany = db.transaction((items) => {
   for (const item of items) {
-    insert.run(item);
+    if (item.created_at) {
+      insertWithTimestamps.run(item);
+    } else {
+      insertWithoutTimestamps.run(item);
+    }
   }
 });
 
