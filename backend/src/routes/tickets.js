@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../database');
+const OpenAI = require('openai');
 
 // GET /api/tickets/stats — Dashboard statistics
 router.get('/stats', (req, res) => {
@@ -111,6 +112,51 @@ router.put('/:id', (req, res) => {
 
   const updated = db.prepare('SELECT * FROM tickets WHERE id = ?').get(req.params.id);
   res.json(updated);
+});
+
+// POST /api/tickets/:id/summarize — AI-powered ticket analysis
+router.post('/:id/summarize', async (req, res) => {
+  const ticket = db.prepare('SELECT * FROM tickets WHERE id = ?').get(req.params.id);
+
+  if (!ticket) {
+    return res.status(404).json({ error: 'Ticket not found' });
+  }
+
+  if (!process.env.OPENAI_API_KEY) {
+    return res.status(503).json({ error: 'AI not configured. Set OPENAI_API_KEY environment variable.' });
+  }
+
+  try {
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [
+        {
+          role: 'system',
+          content: `You are a support ticket analyst. Analyze the following support ticket and provide:
+1. A brief summary (2-3 sentences)
+2. A suggested resolution or next step
+3. Customer sentiment (positive/neutral/frustrated/angry)
+
+Respond ONLY in valid JSON format: { "summary": "...", "suggestedResolution": "...", "sentiment": "..." }`
+        },
+        {
+          role: 'user',
+          content: `Title: ${ticket.title}\n\nDescription: ${ticket.description}\n\nCustomer: ${ticket.customer_name}\nPriority: ${ticket.priority}\nStatus: ${ticket.status}`
+        }
+      ],
+      temperature: 0.3,
+      max_tokens: 300
+    });
+
+    const content = completion.choices[0].message.content;
+    const analysis = JSON.parse(content);
+    res.json(analysis);
+  } catch (err) {
+    console.error('AI summarization error:', err.message);
+    res.status(500).json({ error: 'Failed to generate AI summary. Please try again.' });
+  }
 });
 
 // DELETE /api/tickets/:id — Delete a ticket

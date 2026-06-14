@@ -49,3 +49,10 @@ export async function fetchStats() {
   if (!res.ok) throw new Error('Failed to fetch stats');
   return res.json();
 }
+
+export async function summarizeTicket(id) {
+  const res = await fetch(`${BASE_URL}/${id}/summarize`, { method: 'POST' });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Failed to summarize ticket');
+  return data;
+}

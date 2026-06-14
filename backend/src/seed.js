@@ -95,6 +95,7 @@ const insertMany = db.transaction((items) => {
 });
 
 db.exec('DELETE FROM tickets');
+db.exec("DELETE FROM sqlite_sequence WHERE name = 'tickets'");
 insertMany(tickets);
 
 console.log(`Seeded ${tickets.length} tickets successfully.`);
